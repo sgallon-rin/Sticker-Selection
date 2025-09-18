@@ -63,7 +63,9 @@ class Model(torch.nn.Module):
                 args.max_image_id, 512)
         else:
             logger.info('use image clip')
-            self.img_clip = SentenceTransformer('clip-ViT-B-32')
+            # https://github.com/nonstopfor/Sticker-Selection/issues/2#issuecomment-1243646868
+            # self.img_clip = SentenceTransformer('clip-ViT-B-32')
+            self.img_clip = SentenceTransformer('./clip/clip-ViT-B-32')
             # self.text_clip = SentenceTransformer(
             #     'clip-ViT-B-32-multilingual-v1')
             if args.fix_text:
